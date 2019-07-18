@@ -4,6 +4,7 @@ import java.util.Date;
 
 import lombok.Data;
 
+//PhotoVO will be treated as Restful value object
 @Data
 public class PhotoVO {
 
