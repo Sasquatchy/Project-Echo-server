@@ -1,5 +1,6 @@
 package org.raoul.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
@@ -13,4 +14,6 @@ public class BoardVO {
 	private MemberVO member;
 	private FrameVO frame;
 	private List<PhotoVO> photos;
+	private Date regDate;
+	private boolean sent;
 }
