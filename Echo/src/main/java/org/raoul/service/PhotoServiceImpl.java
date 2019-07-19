@@ -2,23 +2,24 @@ package org.raoul.service;
 
 import java.util.List;
 
-import org.raoul.domain.BoardVO;
+import org.raoul.domain.PhotoVO;
 
-public class BoardServiceImpl implements BoardService {
+public class PhotoServiceImpl implements PhotoService {
 
 	@Override
-	public void add(BoardVO vo) {
-
+	public void add(PhotoVO vo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public BoardVO read(Integer key) {
+	public PhotoVO read(Integer key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int update(BoardVO vo) {
+	public int update(PhotoVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -30,7 +31,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> getList() {
+	public List<PhotoVO> getList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
