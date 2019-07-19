@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class BoardVO {
 
-	private Integer bno;
+	private Integer bno, mno;
 	
 	//contents are sender(member), receiver(frame) and photos(photo)
 	private MemberVO member;
