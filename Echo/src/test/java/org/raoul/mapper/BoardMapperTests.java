@@ -52,7 +52,8 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Override
 	public void updateTest() {
 		BoardVO vo = new BoardVO();
-		vo.setMno(1);
+		vo.setMno(2);
+		vo.setBno(4);
 		
 		mapper.update(vo);
 		
@@ -61,14 +62,14 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Test
 	@Override
 	public void deleteTest() {
-		// TODO Auto-generated method stub
+		mapper.delete(5);
 		
 	}
 
 	@Test
 	@Override
 	public void getListTest() {
-		mapper.selectAll();
+		log.info (mapper.selectAll());
 		
 	}
 	
