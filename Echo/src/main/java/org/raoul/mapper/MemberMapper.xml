@@ -19,12 +19,11 @@
   
   <select id="read" resultMap="memberMap">
 
-	select * 
-	from 
-	tbl_member mem LEFT OUTER JOIN tbl_member_auth auth
-	on mem.userid = auth.userid
-	where mem.userid = #{userid}
-
+		from 
+	echo_member mem LEFT OUTER JOIN echo_member_auth auth
+	on mem.mno = auth.mno
+	where mem.mno = #{mno}
+	
   </select>
   
   </mapper>

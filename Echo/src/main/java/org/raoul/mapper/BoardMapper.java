@@ -18,10 +18,10 @@ public interface BoardMapper {
 	
 	public int update(BoardVO vo);
 	
-	@Delete("delete from tbl_board where bno = #{bno}")
+	@Delete("delete from echo_board where bno = #{bno}")
 	public int delete(Integer bno);
 	
-	@Select("select * from tbl_board where bno>0 order by bno desc")
+	@Select("select * from echo_board where bno>0 order by bno desc")
 	public List<BoardVO> selectAll();
 	
 	public List<BoardVO> selectPage(Criteria cri);

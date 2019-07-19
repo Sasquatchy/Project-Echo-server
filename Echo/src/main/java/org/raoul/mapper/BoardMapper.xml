@@ -27,21 +27,21 @@
 	</sql>
 	
   	<insert id="insert">
-  	insert into tbl_board (title, content, writer) 
-  	values(#{title}, #{content}, #{writer})
+  	insert into echo_board (mno) 
+  	values(#{mno})
   	</insert>
   	  	
   	<select id="select" resultType="BoardVO">
-  	select * from tbl_board where bno = #{bno}
+  	select * from echo_board where bno = #{bno}
   	</select>
   	
   	<update id="update">
-  	update tbl_board set title =#{title}, content=#{content}
+  	update echo_board set mno =#{mno}
   	where bno = #{bno}
   	</update>
   	
   	<select id="selectPage" resultType="BoardVO">
-  	select * from tbl_board 
+  	select * from echo_board 
   	
 	<include refid="searchCri"></include>
   	
@@ -49,12 +49,12 @@
   	</select>
   	
   	<select id="selectPageCount" resultType="int">
-  	select count(bno) from tbl_board 
+  	select count(bno) from echo_board 
   	<include refid="searchCri"></include>
   	</select>
-  	
+<!--   	
   	<select id="search" resultType="BoardVO">
-  	select * from tbl_board
+  	select * from echo_board
   	<if test="map !=null">
   	<where>
   	<foreach collection="map" index="key" item="val">
@@ -73,6 +73,6 @@
   	</where>
   	</if>
   	order by bno desc limit 0,20
-  	</select>
+  	</select> -->
   	
   </mapper>
