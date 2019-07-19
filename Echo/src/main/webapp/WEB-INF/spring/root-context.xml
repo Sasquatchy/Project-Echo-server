@@ -12,10 +12,10 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan
-		base-package="org.zerock.service"></context:component-scan>
+		base-package="org.raoul.service"></context:component-scan>
 	<!-- <context:component-scan base-package="org.zerock.aop"></context:component-scan> -->
 	<mybatis-spring:scan
-		base-package="org.zerock.mapper" />
+		base-package="org.raoul.mapper" />
 
 
 	<bean id="transactionManager"
