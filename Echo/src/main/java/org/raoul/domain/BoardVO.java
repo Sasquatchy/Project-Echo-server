@@ -15,5 +15,6 @@ public class BoardVO {
 	private FrameVO frame;
 	private List<PhotoVO> photos;
 	private Date regDate;
+	private Date updateDate;
 	private boolean sent;
 }
