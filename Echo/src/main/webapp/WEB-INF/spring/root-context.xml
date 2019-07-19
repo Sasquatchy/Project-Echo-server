@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
@@ -10,12 +10,29 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan
 		base-package="org.raoul.service"></context:component-scan>
 
 	<mybatis-spring:scan
 		base-package="org.raoul.mapper" />
+
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:mysql://192.168.41.51:3306/echo?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
+		<property name="username" value="echo"></property>
+		<property name="password" value="echo"></property>
+	</bean>
+
+	<!-- HikariCP configuration -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
 
 
 	<bean id="transactionManager"
@@ -26,29 +43,18 @@
 	<tx:annotation-driven />
 
 
-	<!-- HikariCP의 설정, 아래 코드의 연장선 -->
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName"
-			value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="jdbcUrl"
-			value="jdbc:mysql://192.168.41.51:3306/echo?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
-		<property name="username" value="echo"></property>
-		<property name="password" value="echo"></property>
-	</bean>
-
-	<!-- HikariCP configuration 설정을 기반으로 생성 (constructor-arg) -->
-	<!-- 커넥션 풀링 -->
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-		destroy-method="close">
-		<constructor-arg ref="hikariConfig" />
-	</bean>
-
-	<!-- SqlSession 설정 -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="typeAliasesPackage" value="org.raoul.domain"></property>
 	</bean>
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
+	<mybatis-spring:scan
+		base-package="org.raoul.mapper" />
+
+	<context:component-scan
+		base-package="org.raoul.service"></context:component-scan>
+	<!-- <context:component-scan
+		base-package="org.raoul.aop"></context:component-scan> -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
