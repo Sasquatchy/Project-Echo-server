@@ -13,7 +13,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan
 		base-package="org.raoul.service"></context:component-scan>
-	<!-- <context:component-scan base-package="org.zerock.aop"></context:component-scan> -->
+
 	<mybatis-spring:scan
 		base-package="org.raoul.mapper" />
 
@@ -47,7 +47,7 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="typeAliasesPackage" value="org.zerock.domain"></property>
+		<property name="typeAliasesPackage" value="org.raoul.domain"></property>
 	</bean>
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 

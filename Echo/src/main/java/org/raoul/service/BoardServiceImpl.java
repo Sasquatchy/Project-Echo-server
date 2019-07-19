@@ -8,8 +8,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void add(BoardVO vo) {
-		// TODO Auto-generated method stub
 
+		
 	}
 
 	@Override
