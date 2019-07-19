@@ -31,9 +31,9 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:mysql://192.168.41.38:3306/book_ex?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
-		<property name="username" value="zerock"></property>
-		<property name="password" value="zerock"></property>
+			value="jdbc:mysql://192.168.41.51:3306/book_ex?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
+		<property name="username" value="echo"></property>
+		<property name="password" value="echo"></property>
 	</bean>
 
 	<!-- HikariCP configuration 설정을 기반으로 생성 (constructor-arg) -->
