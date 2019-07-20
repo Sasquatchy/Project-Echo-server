@@ -22,9 +22,9 @@ public class MemberMapperTests implements GenericMapperTests{
 	@Test
 	public void addTest() {
 		MemberVO vo = new MemberVO();
-		vo.setUid("Yoon");
+		vo.setUid("Heo");
 		vo.setPw("12345678");
-		vo.setUsername("Joonho");
+		vo.setUsername("Junyoung");
 		vo.setMobile("010");
 		log.info(vo);
 		mapper.insert(vo);

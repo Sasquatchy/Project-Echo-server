@@ -27,8 +27,7 @@
 	</sql>
 	
   	<insert id="insert">
-  	insert into echo_board (mno) 
-  	values(#{mno})
+  	insert into echo_board (uid) values(#{uid})
   	</insert>
   	  	
   	<select id="select" resultType="BoardVO">

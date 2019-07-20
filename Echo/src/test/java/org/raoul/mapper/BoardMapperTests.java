@@ -33,8 +33,8 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Override
 	public void addTest() {
 		BoardVO vo = new BoardVO();
-		vo.setMno(1);
-		for (int i = 0; i <20; i++) {
+		vo.setUid("Yoon");
+		for (int i = 0; i < 20; i++) {
 			
 			
 			
@@ -55,7 +55,7 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Override
 	public void updateTest() {
 		BoardVO vo = new BoardVO();
-		vo.setMno(2);
+		
 		vo.setBno(4);
 		
 		mapper.update(vo);
@@ -65,10 +65,9 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Test
 	@Override
 	public void deleteTest() {
-		for (int i = 100; i < 106; i++) {
-			
-			mapper.delete(i);
-		}
+		
+			mapper.delete(1);
+		
 		
 	}
 

@@ -9,8 +9,8 @@ import lombok.Data;
 public class BoardVO {
 
 
-	private Integer bno, mno;
-	
+	private Integer bno;
+	private String uid;
 	private Date regDate;
 	private Date updateDate;
 
