@@ -34,10 +34,13 @@ public class BoardMapperTests implements GenericMapperTests{
 	public void addTest() {
 		BoardVO vo = new BoardVO();
 		vo.setMno(1);
-		
-	
-		
-		mapper.insert(vo);
+		for (int i = 0; i <100; i++) {
+			
+			
+			
+			
+			mapper.insert(vo);
+		}
 		
 	}
 

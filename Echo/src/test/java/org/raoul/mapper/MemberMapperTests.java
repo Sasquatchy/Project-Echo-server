@@ -1,30 +1,57 @@
 package org.raoul.mapper;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.raoul.domain.MemberVO;
+import org.raoul.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import lombok.extern.log4j.Log4j;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@Log4j
 public class MemberMapperTests implements GenericMapperTests{
 
-	MemberMapper mapper;
+	@Autowired
+	private MemberMapper mapper;
 	
 	@Override
+	@Test
 	public void addTest() {
-		// TODO Auto-generated method stub
+		MemberVO vo = new MemberVO();
+		vo.setUid("Yoon");
+		vo.setPw("12345678");
+		vo.setUsername("Joonho");
+		vo.setMobile("010");
+		log.info(vo);
+		mapper.insert(vo);
 		
 	}
 
 	@Override
+	@Test
 	public void readTest() {
-		// TODO Auto-generated method stub
+		log.info(mapper.read("1"));
 		
 	}
 
 	@Override
+	@Test
 	public void updateTest() {
-		// TODO Auto-generated method stub
+		MemberVO vo = mapper.read("2");
+		vo.setPw("12345678");
+		
+		mapper.update(vo);
 		
 	}
 
 	@Override
+	@Test
 	public void deleteTest() {
-		// TODO Auto-generated method stub
+		mapper.delete("Heo");
 		
 	}
 
