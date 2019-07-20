@@ -3,7 +3,9 @@ package org.raoul.service;
 import java.util.List;
 
 import org.raoul.domain.PhotoVO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PhotoServiceImpl implements PhotoService {
 
 	@Override
@@ -19,13 +21,13 @@ public class PhotoServiceImpl implements PhotoService {
 	}
 
 	@Override
-	public int update(PhotoVO vo) {
+	public int modify(PhotoVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(Integer key) {
+	public int remove(Integer key) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

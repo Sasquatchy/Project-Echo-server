@@ -8,9 +8,9 @@ public interface CRUDGenericService<VO, K>  {
 	
 	public VO read(K key);
 	
-	public int update(VO vo);
+	public int modify(VO vo);
 	
-	public int delete(K key);
+	public int remove(K key);
 	
 	public List<VO> getList();
 

@@ -3,7 +3,9 @@ package org.raoul.service;
 import java.util.List;
 
 import org.raoul.domain.FrameVO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FrameServiceImpl implements FrameService {
 
 	@Override
@@ -19,13 +21,13 @@ public class FrameServiceImpl implements FrameService {
 	}
 
 	@Override
-	public int update(FrameVO vo) {
+	public int modify(FrameVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(Integer key) {
+	public int remove(Integer key) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
