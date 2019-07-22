@@ -31,10 +31,9 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int remove(Integer mno) {
-		
-		MemberVO vo = new MemberVO();
-		
-		return mMapper.delete(uid);
+		MemberVO vo = mMapper.read(mno);
+	
+		return 	mMapper.delete(vo.getUid());
 	}
 
 	@Override

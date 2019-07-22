@@ -51,7 +51,7 @@ public class MemberMapperTests implements GenericMapperTests{
 	@Override
 	@Test
 	public void deleteTest() {
-		mapper.delete("ahn");
+		mapper.delete("Heo");
 		
 	}
 

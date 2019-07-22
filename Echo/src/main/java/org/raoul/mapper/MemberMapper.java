@@ -20,7 +20,7 @@ public interface MemberMapper {
 	
 
 	@Delete("delete from echo_member where uid = #{uid}")
-	public void delete(String uid);
+	public int delete(String uid);
 	
 	public int update(MemberVO vo);
 	
