@@ -27,7 +27,7 @@
   </select>
   
   <update id="update">
-  	update echo_member set  uid = #{uid},pw =#{pw},  username =#{username}, mobile =#{mobile}  
+  	update echo_member set  uid = #{uid}, pw =#{pw}, username =#{username}, mobile =#{mobile}  
   	where mno = #{mno}
   	</update>
   
