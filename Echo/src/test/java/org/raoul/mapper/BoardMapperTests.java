@@ -1,5 +1,6 @@
 package org.raoul.mapper;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.raoul.domain.BoardVO;
@@ -77,9 +78,5 @@ public class BoardMapperTests implements GenericMapperTests{
 		log.info (mapper.selectAll());
 		
 	}
-	
-	
-	
-	
 	
 }

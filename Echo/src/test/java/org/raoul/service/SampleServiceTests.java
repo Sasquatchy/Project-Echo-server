@@ -1,4 +1,4 @@
-package org.raoul.Service;
+package org.raoul.service;
 
 import java.sql.Connection;
 

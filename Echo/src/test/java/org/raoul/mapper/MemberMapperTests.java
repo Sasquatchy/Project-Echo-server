@@ -34,14 +34,14 @@ public class MemberMapperTests implements GenericMapperTests{
 	@Override
 	@Test
 	public void readTest() {
-		log.info(mapper.read("1"));
+		log.info(mapper.read(1));
 		
 	}
 
 	@Override
 	@Test
 	public void updateTest() {
-		MemberVO vo = mapper.read("2");
+		MemberVO vo = mapper.read(2);
 		vo.setPw("12345678");
 		
 		mapper.update(vo);
