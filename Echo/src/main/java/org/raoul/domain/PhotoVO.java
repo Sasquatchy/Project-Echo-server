@@ -11,4 +11,5 @@ public class PhotoVO {
 	private String photoName;
 	private String path;
 	private Date regDate;
+	private String bno,uid;
 }

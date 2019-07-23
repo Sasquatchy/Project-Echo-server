@@ -26,12 +26,8 @@ public interface BoardMapper {
 	
 	public List<BoardVO> selectPage(Criteria cri);
 	
-	public int selectPageCount(Criteria cri);
+	@Select("select count(bno) from echo_board")
+	public int countList(Criteria cri);
 	
-	public List<BoardVO> search(@Param("map") Map<String, String> map);
 	
-//	@Update("update tbl_board set replycnt = replycnt + #{amount} where bno = #{bno}")
-//	public int updateReplyCnt(
-//			@Param("bno") Integer bno,
-//			@Param("amount") int amount);
 }

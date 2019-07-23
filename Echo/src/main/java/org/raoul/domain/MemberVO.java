@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberVO {
 
-	private Integer mno;
+	private Integer mno,fno;
 	private String uid;
 	private String pw;
 	private String username;

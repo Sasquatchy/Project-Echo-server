@@ -4,6 +4,7 @@ package org.raoul.mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.raoul.domain.BoardVO;
+import org.raoul.domain.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,10 +26,16 @@ public class BoardMapperTests implements GenericMapperTests{
 	TimeMapper mapper2;
 	
 	
+	@Test
+	public void testcountList() {
+		Criteria cri = new Criteria();
+		mapper.countList(cri);
+		
+	}
 	
 	@Test
 	public void getTime() {
-		mapper2.getTime();
+		log.info(mapper2.getTime());
 	}
 	@Test
 	@Override
