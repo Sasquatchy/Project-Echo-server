@@ -3,6 +3,7 @@ package org.raoul.service;
 import java.util.List;
 
 import org.raoul.domain.BoardVO;
+import org.raoul.domain.Criteria;
 import org.raoul.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,11 @@ public class BoardServiceImpl implements BoardService {
 		result = bMapper.selectAll();
 		
 		return result;
+	}
+
+	@Override
+	public int getListCount(Criteria cri) {
+		return bMapper.selectPageCount(cri);
 	}
 
 }

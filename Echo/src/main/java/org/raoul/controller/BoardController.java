@@ -2,6 +2,7 @@ package org.raoul.controller;
 
 import org.raoul.domain.BoardVO;
 import org.raoul.domain.Criteria;
+import org.raoul.domain.PageMaker;
 import org.raoul.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,9 @@ public class BoardController {
 
 	@GetMapping("/list")
 	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
+		int totalCount = bService.getListCount(cri);
 		model.addAttribute("list", bService.getList());
+		model.addAttribute("pm", new PageMaker(cri,totalCount));
 		log.info("=-=-=-entering list board/list..");
 
 	}

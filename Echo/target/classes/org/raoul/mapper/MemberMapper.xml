@@ -19,11 +19,16 @@
   
   <select id="read" resultMap="memberMap">
 
-		from 
+		select * from 
 	echo_member mem LEFT OUTER JOIN echo_member_auth auth
 	on mem.mno = auth.mno
 	where mem.mno = #{mno}
 	
   </select>
+  
+  <update id="update">
+  	update echo_member set  uid = #{uid}, pw =#{pw}, username =#{username}, mobile =#{mobile}  
+  	where mno = #{mno}
+  	</update>
   
   </mapper>
