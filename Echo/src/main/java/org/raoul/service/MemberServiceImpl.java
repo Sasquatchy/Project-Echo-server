@@ -2,6 +2,8 @@ package org.raoul.service;
 
 import java.util.List;
 
+import org.raoul.domain.BoardVO;
+import org.raoul.domain.Criteria;
 import org.raoul.domain.MemberVO;
 import org.raoul.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +33,20 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int remove(Integer mno) {
-		
-	
-		return 	mMapper.delete(mno);
+		return mMapper.delete(mno);
 	}
 
 	@Override
-	public List<MemberVO> getList() {
-		return mMapper.getList();
+	public List<MemberVO> getList(Criteria cri) {
+		List<MemberVO> result = null;
+		result = mMapper.selectPage(cri);
+		return result;
+	}
+
+	@Override
+	public int getListCount(Criteria cri) {
+		
+		return  mMapper.selectPageCount(cri);
 	}
 
 }

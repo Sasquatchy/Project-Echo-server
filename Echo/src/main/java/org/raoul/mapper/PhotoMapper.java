@@ -1,23 +1,34 @@
 package org.raoul.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.raoul.domain.PhotoVO;
+import org.raoul.domain.PhotoDTO;
 
 public interface PhotoMapper {
 
-	@Insert("insert into echo_photo (path,photoName,uid,bno) values(#{path},#{photoName},#{uid},#{bno})")
-	public void insert(PhotoVO vo);
-
-	@Select("select * from echo_photo where pno = #{pno}")
-	public PhotoVO select(Integer pno);
-
-	@Update("update echo_photo set pno =#{pno},photoName =#{photoName}  where pno = #{pno}")
-	public int update(PhotoVO vo);
-
+	public void insert(PhotoDTO dto);
+	
+	public void insertList(List<PhotoDTO> list);
+	
 	@Delete("delete from echo_photo where pno = #{pno}")
 	public int delete(Integer pno);
+	
+	public int deleteList(List<PhotoDTO> list);
+	
+	@Delete("delete from echo_photo where bno = #{bno}")
+	public int deleteWithBoard(Integer bno);
+	
+	@Select("select * from echo_photo where bno=#{bno} order by pno desc")
+	public List<PhotoDTO> findListByBoard(Integer bno);
 
+	@Select("select * from echo_photo where uid=#{uid} order by pno desc")
+	public List<PhotoDTO> findListByMember(String uid);
+
+	@Select("select * from echo_photo where pno=#{pno}")
+	public PhotoDTO select(Integer pno);
+	
+	
 }

@@ -1,6 +1,5 @@
 package org.raoul.mapper;
 
-
 import org.apache.ibatis.annotations.Select;
 
 public interface TimeMapper {

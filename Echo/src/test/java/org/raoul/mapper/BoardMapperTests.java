@@ -1,10 +1,8 @@
 package org.raoul.mapper;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.raoul.domain.BoardVO;
-import org.raoul.domain.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -26,29 +24,20 @@ public class BoardMapperTests implements GenericMapperTests{
 	TimeMapper mapper2;
 	
 	
-	@Test
-	public void testcountList() {
-		Criteria cri = new Criteria();
-		mapper.countList(cri);
-		
-	}
 	
 	@Test
 	public void getTime() {
-		log.info(mapper2.getTime());
+		mapper2.getTime();
 	}
 	@Test
 	@Override
 	public void addTest() {
 		BoardVO vo = new BoardVO();
-		vo.setUid("Yoon");
-		for (int i = 0; i < 20; i++) {
-			
-			
-			
-			
-			mapper.insert(vo);
-		}
+		vo.setMno(1);
+		
+	
+		
+		mapper.insert(vo);
 		
 	}
 
@@ -63,7 +52,7 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Override
 	public void updateTest() {
 		BoardVO vo = new BoardVO();
-		
+		vo.setMno(2);
 		vo.setBno(4);
 		
 		mapper.update(vo);
@@ -73,9 +62,7 @@ public class BoardMapperTests implements GenericMapperTests{
 	@Test
 	@Override
 	public void deleteTest() {
-		
-			mapper.delete(1);
-		
+		mapper.delete(5);
 		
 	}
 
@@ -85,5 +72,9 @@ public class BoardMapperTests implements GenericMapperTests{
 		log.info (mapper.selectAll());
 		
 	}
+	
+	
+	
+	
 	
 }
