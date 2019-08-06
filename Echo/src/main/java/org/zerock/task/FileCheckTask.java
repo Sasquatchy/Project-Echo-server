@@ -49,7 +49,7 @@ public class FileCheckTask {
 		List<Path> fileListPaths = fileList.stream().map(vo -> Paths.get("C:\\upload",vo.getFolderPath(),vo.getUuid() +"_"+vo.getOriginalPhotoName())).collect(Collectors.toList()); 
 				
 			
-		fileList.stream().map(vo -> Paths.get("C:\\upload", vo.getFolderPath() + File.separator + "thumbnail" + File.separator + "thumb_" +vo.getUuid() +"_" + vo.getOriginalPhotoName()))
+		fileList.stream().map(vo -> Paths.get("C:\\upload", vo.getFolderPath(), "thumbnail", "thumb_" +vo.getUuid() +"_" + vo.getOriginalPhotoName()))
 		.forEach(p-> fileListPaths.add(p));
 		
 		log.warn("========================================================");

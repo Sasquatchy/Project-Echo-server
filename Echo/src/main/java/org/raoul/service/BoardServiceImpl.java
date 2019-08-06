@@ -49,10 +49,27 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVO read(Integer key) {
 		return bMapper.select(key);	}
 
+	@Transactional
 	@Override
 	public int modify(BoardVO vo) {
-		//TODO : 어떻게 할지 방식 다시 구상해보기.
-		return bMapper.update(vo);
+		
+		log.info("modify...." + vo );
+		
+		pMapper.deleteWithBoard(vo.getBno());
+		
+		if(vo.getAttachList() == null || vo.getAttachList().size() <= 0) {
+			return 0;
+		}
+		
+		vo.getAttachList().forEach(attach ->{
+			attach.setBno(vo.getBno());
+			attach.setUid(vo.getUid());
+			log.info("attach : " + attach);
+			pMapper.insert(attach);
+		});
+		//bMapper.update(vo);
+		
+		return 1;
 	}
 
 	@Override

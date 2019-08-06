@@ -81,7 +81,7 @@
 		<h1 class="mdc-typography--title">Photos</h1>
 		<hr>
 		<div class="container">
-		           			<style>
+<style>
 	.uploadResult{
 	
 	width:100%;
@@ -140,25 +140,6 @@
           				</div>
 		<div class="row photoList">
 		
-		
-<!-- 			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div>
-			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div>
-			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div>
-			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div>
-			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div>
-			<div class="col-md-4">
-			<img src="/resources/images/attach.png" width=200px>
-			</div> -->
 		</div>
 		
 		</div>
@@ -183,7 +164,25 @@
 		var photoList = $(".photoList");
 		
 		
-		
+		$(".uploadResult").on("click","button",function(e){
+			console.log("delete file");
+			
+			var targetFile = $(this).data("file");
+			var type = $(this).data("type");
+			var targetLi = $(this).closest("li");
+			targetLi.remove();
+/*   				$.ajax({
+				url : '/deleteFile',
+				data : {fileName : targetFile, type : type},
+				dataType: 'text',
+				type : 'POST',
+				success: function(result){
+					alert(result);
+					
+				} 
+			});//$.ajax  */
+			
+		});
 		
 		$(".listBtn").on("click",function(e){
 			actionForm.find("input[name='bno']").remove();	
@@ -208,6 +207,8 @@
 			var maxSize = 5242880;//5mb
 			
 			
+			
+			
 			function checkExtension(fileName, fileSize){
 				
 				if(fileSize >= maxSize){
@@ -221,6 +222,7 @@
 				}
 				return true;
 			}; */
+			
 			
 			function showUploadResult(uploadResultArr){
 				
@@ -307,25 +309,7 @@
 				});//end $.ajax
 			});//end #uploadBtn event
 			
-			$(".uploadResult").on("click","button",function(e){
-				console.log("delete file");
-				
-				var targetFile = $(this).data("file");
-				var type = $(this).data("type");
-				var targetLi = $(this).closest("li");
-				targetLi.remove();
-/*   				$.ajax({
-					url : '/deleteFile',
-					data : {fileName : targetFile, type : type},
-					dataType: 'text',
-					type : 'POST',
-					success: function(result){
-						alert(result);
-						
-					} 
-				});//$.ajax  */
-				
-			});
+
 			
 			$("button[type='submit']").on("click",function(e){
 			

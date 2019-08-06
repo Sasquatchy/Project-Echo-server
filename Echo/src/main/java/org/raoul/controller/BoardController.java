@@ -62,9 +62,19 @@ public class BoardController {
 	}
 	
 	@PostMapping("/modify")
-	public String modity(@ModelAttribute("cri") Criteria cri,Model model, BoardVO vo, RedirectAttributes rttr) {
+	public String modity(@ModelAttribute("cri") Criteria cri, BoardVO vo, RedirectAttributes rttr) {
 		
-		return "redirect:/board/read"+cri.getLink();
+		log.info("=-=-=-modifying vo: "+vo);
+
+		if (vo.getAttachList() != null) {
+			vo.getAttachList().forEach(attach -> log.info(attach));
+		}
+		
+		log.info("=========================================================");
+		
+		bService.modify(vo);
+		
+		return "redirect:/board/read"+cri.getLink()+"&bno="+vo.getBno();
 	}
 
 	@PostMapping("/remove")
