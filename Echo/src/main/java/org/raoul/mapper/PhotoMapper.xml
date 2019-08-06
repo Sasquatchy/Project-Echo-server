@@ -5,6 +5,11 @@
 
 <mapper namespace="org.raoul.mapper.PhotoMapper">
 
+		<select id="getOldFiles" resultType="org.raoul.domain.PhotoDTO">
+		
+		select * from echo_photo where right(folderPath, 10) = (DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y\%m\%d'));
+		</select>
+
 	   <insert id = "insert">
 	   insert into echo_photo (uuid, originalPhotoName, folderPath, bno, uid) 
 	   values (#{uuid}, #{originalPhotoName}, #{folderPath}, #{bno}, #{uid})
