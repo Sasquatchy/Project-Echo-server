@@ -2,6 +2,7 @@ package org.raoul.service;
 
 import java.util.List;
 
+import org.raoul.domain.Criteria;
 import org.raoul.domain.FrameVO;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,7 @@ public class FrameServiceImpl implements FrameService {
 	}
 
 	@Override
-	public List<FrameVO> getList() {
+	public List<FrameVO> getList(Criteria cri) {
 		// TODO Auto-generated method stub
 		return null;
 	}

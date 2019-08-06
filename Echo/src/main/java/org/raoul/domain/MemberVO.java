@@ -1,7 +1,6 @@
 package org.raoul.domain;
 
 import java.util.Date;
-
 import java.util.List;
 
 import org.raoul.domain.AuthVO;
@@ -18,7 +17,6 @@ public class MemberVO {
 	private String mobile;
 	private Date regDate;
 	private Date updateDate;
-	private Integer fno;
 	
 	private List<AuthVO> authList;
 	
