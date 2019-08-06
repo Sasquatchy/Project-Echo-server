@@ -60,8 +60,6 @@ public class PhotoController {
 	public @ResponseBody ResponseEntity<List<PhotoDTO>> uploadAjaxPost(MultipartFile[] uploadFiles,
 			String uid) {
 
-//		log.info(uploadFiles[0].getOriginalFilename() + "==== uid=" + uid + "==== bno=" + bno);
-
 		List<PhotoDTO> list = pService.upload(uploadFiles, uploadPath, uid);
 
 		log.info("list contents ==== \n"+list);
