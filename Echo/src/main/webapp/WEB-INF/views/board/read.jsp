@@ -124,6 +124,13 @@
 				</button>
  			</div> 
  			<div class="modal-body-wrapper">
+ 				<div class="modal-body">
+
+				</div>
+ 				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" id="deleteBtn" class="btn btn-danger" data-targetDelete=''>Delete</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -148,29 +155,23 @@
 		$('.deleteIcon').on("click",function(e){
 			e.preventDefault();
 			var targetBno = $(this).attr("href");
+			/* console.log(targetBno)  */
 			/* Open modal, write the content and needed data*/
-			var modalBody = $(".modal-body-wrapper")
+			var modalBody = $(".modal-body")
 			modalBody.html("");
-/* 			modalBody.html('<div class="modal-body">Board #'+targetBno+' will be deleted.</div>'); */
 			modalBody.html(
-				'<div class="modal-body">'+
-					'<div class="modal-body">Board #'+targetBno+' will be deleted.</div>'+
-				'</div>'+
-				'<div class="modal-footer">'+
-					'<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>'+
-					'<button type="button" id="deleteBtn" class="btn btn-danger" data-targetDelete='+targetBno+'>Delete</button>'+
-				'</div>'		
-			
+				'<div class="modal-body">Board #'+targetBno+' will be deleted.</div>'
 			); 
+			$("#deleteBtn").data("targetDelete",targetBno);
 			
 			
 		});
 		
 		/* Delete post */
 		$("#deleteBtn").on("click", function(e){
-			var targetBno = $(this).data('targetDelete');
+			var targetBno = $(this).data("targetDelete");
 			console.log(targetBno);
-			actionForm.attr("action", "/board/remove")
+ 			actionForm.attr("action", "/board/remove")
 			.attr("method","post")
 			.append("<input type ='hidden' name='bno' value="+targetBno+">")
 			.submit();
