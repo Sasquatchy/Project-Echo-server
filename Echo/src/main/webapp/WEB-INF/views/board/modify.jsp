@@ -41,7 +41,7 @@
 
 	<section class="mdc-card__primary">
 
-		<h1 class="mdc-typography--title">read</h1>
+		<h1 class="mdc-typography--title">modify</h1>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-11"></div>
@@ -49,7 +49,6 @@
 				<div class="col-md-1">
 
 					<button class="btn btn-default listBtn">List</button>
-					
 
 				</div>
 			</div>
