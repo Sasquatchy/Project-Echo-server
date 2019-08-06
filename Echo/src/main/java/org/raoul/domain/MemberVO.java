@@ -1,7 +1,6 @@
 package org.raoul.domain;
 
 import java.util.Date;
-
 import java.util.List;
 
 import org.raoul.domain.AuthVO;

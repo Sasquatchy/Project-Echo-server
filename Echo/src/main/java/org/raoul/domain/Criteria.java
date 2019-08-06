@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class Criteria {
 	
-	private Integer bno;
+	private Integer bno, mno;
 	private int page;
 	private int amount;
 	private String type;
@@ -45,6 +45,10 @@ public class Criteria {
 	
 	public void setBno(Integer bno) {
 		this.bno = bno;
+	}
+	
+	public void setMno(Integer mno) {
+		this.mno = mno;
 	}
 
 	public void setType(String type) {
@@ -78,6 +82,8 @@ public class Criteria {
 				.queryParam("keyword", keyword);
 		return builder.toUriString();
 	}
+
+
 
 
 

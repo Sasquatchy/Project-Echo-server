@@ -2,6 +2,7 @@ package org.raoul.service;
 
 import java.util.List;
 
+import org.raoul.domain.Criteria;
 import org.raoul.domain.MemberVO;
 import org.raoul.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<MemberVO> getList() {
+	public List<MemberVO> getList(Criteria cri) {
 		return mMapper.getList();
 	}
 
