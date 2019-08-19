@@ -13,7 +13,6 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-
 public class BoardMapperTests implements GenericMapperTests{
 
 	
@@ -29,15 +28,20 @@ public class BoardMapperTests implements GenericMapperTests{
 	public void getTime() {
 		mapper2.getTime();
 	}
+	
 	@Test
 	@Override
 	public void addTest() {
-		BoardVO vo = new BoardVO();
-		vo.setMno(1);
-		
-	
-		
-		mapper.insert(vo);
+		for (int i = 0; i < 50; i++) {
+			
+			BoardVO vo = new BoardVO();
+			vo.setMno(3);
+			vo.setUid("Uid0");
+			
+			
+			
+			mapper.insert(vo);
+		}
 		
 	}
 

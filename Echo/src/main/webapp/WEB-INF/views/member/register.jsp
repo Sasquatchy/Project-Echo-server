@@ -123,7 +123,7 @@
 											</div>
 											<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
 												<label class="mdc-text-field w-100">
-												<input type="text" name = 'pw' class="mdc-text-field__input" placeholder="Password">  
+												<input type="password" name = 'pw' class="mdc-text-field__input" placeholder="Password">  
 												<span class="mdc-text-field__label"></span>
 												<div class="mdc-text-field__bottom-line"></div>
 												</label>
@@ -131,7 +131,7 @@
 
 											<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
 												<label class="mdc-text-field w-100">
-												<input type="text" name = 'pw' class="mdc-text-field__input" placeholder="Password Again">  
+												<input type="text" name = 'check' class="mdc-text-field__input" placeholder="Password Again">  
 												<span class="mdc-text-field__label"></span>
 												<div class="mdc-text-field__bottom-line"></div>
 												</label>
@@ -140,8 +140,8 @@
 
 											<div
 												class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-												<button class="mdc-button mdc-button--raised w-100"
-													data-mdc-auto-init="MDCRipple">Register Now</button>
+												<a class="selo mdc-button mdc-button--raised w-100"
+													data-mdc-auto-init="MDCRipple">Register Now</a>
 											</div>
 											<div
 												class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
@@ -160,7 +160,31 @@
 			</div>
 
 			</main>
+			<!--  췤 -->
+			<script>
+			var actionForm = $(".user");
+			
+			
+			
+			$(".selo").on("click", function(e) {
+			 	//userForm = formData()
+			 	var pw = $("input[name = 'pw']").val();
+			 	var check = $("input[name = 'check']").val();
+				 console.log("babo");
+				 console.log(pw);
+					 
+		       if(pw != check){
+				 alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
+		    	   return;
+		       }
+		       actionForm.submit();
+			}
+			);//on end
+			 
+			</script>
+			
 			<!-- partial:../../partials/_footer.html -->
+			
 
 
 			<%@include file="../includes/footer.jsp"%>

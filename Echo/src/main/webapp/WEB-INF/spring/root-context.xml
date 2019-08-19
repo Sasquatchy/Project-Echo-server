@@ -16,9 +16,9 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:mysql://192.168.41.51:3306/echo?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
+			value="jdbc:mysql://112.186.92.194:3306/echo?useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="echo"></property>
-		<property name="password" value="echo"></property>
+		<property name="password" value="1234"></property>
 	</bean>
 
 	<!-- HikariCP configuration -->
