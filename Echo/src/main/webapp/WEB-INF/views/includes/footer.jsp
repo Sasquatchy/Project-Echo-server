@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer>
+<!-- <footer>
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
@@ -11,10 +11,10 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
       <!-- partial -->
-    </div>
-  </div>
+     </div>
+  </div> 
   <!-- body wrapper -->
   <!-- plugins:js -->
   

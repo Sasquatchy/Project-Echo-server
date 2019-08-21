@@ -18,6 +18,8 @@ public class MemberVO {
 	private Date regDate;
 	private Date updateDate;
 	
+	private String ufid;
+	
 	private List<AuthVO> authList;
 	
 	

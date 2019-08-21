@@ -2,6 +2,7 @@ package org.raoul.controller;
 
 import org.raoul.domain.Criteria;
 import org.raoul.domain.MemberVO;
+import org.raoul.domain.PageMaker;
 import org.raoul.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,10 @@ public class MemberController {
 	
 	@GetMapping("/list")
 	public void list(@ModelAttribute("cri") Criteria cri, Model model) {
+		
+		int totalCount = mService.getListCount(cri);
+
+		model.addAttribute("pm", new PageMaker(cri, totalCount));
 		model.addAttribute("list", mService.getList(cri));
 		log.info("=-=-=-entering list member/list..");
 		log.info(model);
@@ -35,6 +40,16 @@ public class MemberController {
 		model.addAttribute("vo", mService.read(cri.getMno()));
 		log.info("=-=-=-entering list member/read..");
 		log.info(model);
+	}
+	
+	@PostMapping("/modify")
+	public String modify(@ModelAttribute("cri")Criteria cri, MemberVO vo, RedirectAttributes rttr) {
+		log.info("vo:"+vo);
+		
+		rttr.addFlashAttribute("result", "success");
+		log.info(cri.getLink());
+		mService.modify(vo);
+		return "redirect:/member/read"+cri.getLink();
 	}
 	
 	@GetMapping({"/register", "/login"})

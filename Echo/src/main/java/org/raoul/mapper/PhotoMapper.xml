@@ -5,38 +5,36 @@
 
 <mapper namespace="org.raoul.mapper.PhotoMapper">
 
-	   <insert id = "insert">
-	   insert into echo_photo (uuid, originalPhotoName, folderPath, bno, uid) 
-	   values (#{uuid}, #{originalPhotoName}, #{folderPath}, #{bno}, #{uid})
-	   
-	   </insert>
+	<insert id="insert">
+		insert into echo_photo (uuid, originalPhotoName, folderPath, bno, uid)
+		values (#{uuid}, #{originalPhotoName}, #{folderPath}, #{bno}, #{uid})
 
-	<insert id="insertList" >
-		insert into echo_photo (uuid, originalPhotoName, folderPath, bno, uid) 
+	</insert>
+
+	<insert id="insertList">
+		insert into echo_photo (uuid, originalPhotoName, folderPath, bno, uid)
 		values (#{uuid},
-				#{originalPhotoName},
-				#{folderPath},  
-				#{bno},
-				#{uid}
-				)
-		
-<!--	parameterType="java.util.List" 			
-<foreach item="item" index="index" collection="list" separator=",">
-			(
-				#{item.photoname}, 
-				#{item.path}, 
-				#{item.bno},
-				#{item.uid}
-			)
-			</foreach> -->
+		#{originalPhotoName},
+		#{folderPath},
+		#{bno},
+		#{uid}
+		)
+
 	</insert>
 
 	<delete id="deleteList" parameterType="java.util.List">
 		delete from echo_photo where pno in (
-			<foreach item="item" index="index" collection="list" separator=",">
-				'#{item.pno}'
-			</foreach>
+		<foreach item="item" index="index" collection="list"
+			separator=",">
+			'#{item.pno}'
+		</foreach>
 		)
 	</delete>
+
+	<select id="getOldFiles" resultType="org.raoul.domain.PhotoDTO">
+
+		select * from echo_photo where right(folderPath, 10) =
+		(DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y\%m\%d'));
+	</select>
 
 </mapper>

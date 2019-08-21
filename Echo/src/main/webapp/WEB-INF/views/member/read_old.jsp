@@ -41,14 +41,8 @@
 		<h1 class="mdc-typography--title">Member information</h1>
 		<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-11">
 			
-			</div>
-			<div class="col-md-1">
-			
-			<button class="btn btn-default ModifyBtn">
-              	Modify
-      		</button>
 			</div>
 			
 			<div class="col-md-1">
@@ -69,7 +63,6 @@
                  <th>pw</th>
                  <th>username</th>
                  <th>mobile</th>
-                 <th>ufid</th>
                  <th>auth</th>
                  <th>regdate</th>
                  <th>updatedate</th>
@@ -82,7 +75,6 @@
                     <td><c:out value="${vo.pw }"/></td>
                     <td><c:out value="${vo.username}" /></td>
                     <td><c:out value="${vo.mobile}" /></td>
-                     <td><c:out value="${vo.ufid}" /></td>
                     <td></td>
                     <td><fmt:formatDate value="${vo.regDate}" pattern="yyyy-MM-dd"/></td>
                     <td><fmt:formatDate value="${vo.updateDate}" pattern="yyyy-MM-dd"/></td>
@@ -116,7 +108,7 @@
 		</div>
 		
       </main>
-	<form id="actionForm" action="/member/read" method="get">
+	<form id="actionForm" action="/member/list" method="get">
 		<input type="hidden" name="page" value="${cri.page}"> 
 		<input type="hidden" name="amount" value="${cri.amount}"> 
 		<input type="hidden" name="type" value="${cri.type}"> 
@@ -131,20 +123,6 @@
 		
 		showPhotos();
 		
-		$(".ModifyBtn")
-		.on("click",function(e) {
-					e.preventDefault();
-					
-					var targetMno = "${vo.mno}";
-					
-					actionForm
-							.attr("action", "/member/modify")
-							.append(
-									"<input type ='hidden' name='mno' value="+targetMno+">")
-							.submit();
-				}//end function		
-		);
-		
 		function showPhotos(){
 			console.log("showphotos....")
 			console.log(uid)
@@ -154,8 +132,10 @@
 	            console.log("photoService getlist...")
 				console.log(arr);
 	            //비구조화 분해 문법 , 구조 분해 할당 문법
+
 	            //템플릿 문법
 	            var str = '';
+
 	            for(var i = 0; i < arr.length; i++){
 	                var {pno,uuid,originalPhotoName,folderPath,regDate} = arr[i];
 	                console.log(arr[i]);
@@ -174,6 +154,8 @@
 	          		}
 	            
 	            photoList.append(str);
+
+
 	        });
 			
 		}

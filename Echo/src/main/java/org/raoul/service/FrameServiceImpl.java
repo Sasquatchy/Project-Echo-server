@@ -4,39 +4,39 @@ import java.util.List;
 
 import org.raoul.domain.Criteria;
 import org.raoul.domain.FrameVO;
+import org.raoul.mapper.FrameMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FrameServiceImpl implements FrameService {
 
+	@Autowired
+	FrameMapper fMapper;
+	
 	@Override
 	public void add(FrameVO vo) {
-		// TODO Auto-generated method stub
-
+		fMapper.insert(vo);
 	}
 
 	@Override
 	public FrameVO read(Integer key) {
-		// TODO Auto-generated method stub
-		return null;
+		return fMapper.read(key);
 	}
 
 	@Override
 	public int modify(FrameVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return fMapper.update(vo);
 	}
 
 	@Override
 	public int remove(Integer key) {
-		// TODO Auto-generated method stub
-		return 0;
+		return fMapper.delete(key);
 	}
 
 	@Override
 	public List<FrameVO> getList(Criteria cri) {
-		// TODO Auto-generated method stub
-		return null;
+		return fMapper.getList();
 	}
 
 }

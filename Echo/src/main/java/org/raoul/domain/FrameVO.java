@@ -8,8 +8,7 @@ import lombok.Data;
 public class FrameVO {
 
 	private Integer fno;
-	private String mac;
-	private String address;
+	private String ufid;
 	private Date regDate;
 	private Date updateDate;
 	

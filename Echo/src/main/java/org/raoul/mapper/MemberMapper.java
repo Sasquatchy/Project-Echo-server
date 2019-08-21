@@ -26,5 +26,7 @@ public interface MemberMapper {
 	@Select("select * from echo_member where mno>0 order by mno desc")
 	public List<MemberVO> getList();
 	
-	public List<BoardVO> selectPage(Criteria cri);
+	public int selectPageCount(Criteria cri);
+
+	public List<MemberVO> selectPage(Criteria cri);
 }

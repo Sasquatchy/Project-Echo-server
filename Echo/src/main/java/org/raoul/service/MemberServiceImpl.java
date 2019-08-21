@@ -37,7 +37,15 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<MemberVO> getList(Criteria cri) {
-		return mMapper.getList();
+		List<MemberVO> result = null;
+		result = mMapper.selectPage(cri);
+		return result;
+	}
+	
+	@Override
+	public int getListCount(Criteria cri) {
+		
+		return  mMapper.selectPageCount(cri);
 	}
 
 }

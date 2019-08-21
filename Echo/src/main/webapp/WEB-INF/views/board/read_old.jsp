@@ -41,19 +41,16 @@
 
 	<section class="mdc-card__primary">
 
-		<h1 class="mdc-typography--title">readddd</h1>
+		<h1 class="mdc-typography--title">readasdfsadfasd</h1>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-10"></div>
+				<div class="col-md-11"></div>
 
 				<div class="col-md-1">
-					<button class="btn btn-default listMdf">Modify</button>					
+
+					<button class="btn btn-default listBtn">List</button>
 
 				</div>
-				<div class="col-md-1">
-					
-					<button class="btn btn-default listBtn">List</button>
-</div>		
 			</div>
 
 		</div>
@@ -76,7 +73,8 @@
 					<td><fmt:formatDate value="${vo.updateDate}"
 							pattern="yyyy-MM-dd" /></td>
 					<td><c:out value="${vo.sent}" /></td>
-					<td><a href='${vo.bno}' class='deleteIcon'><i class="mdi mdi-delete text-red" data-toggle="modal"
+					<td><a href='${vo.bno}' class='deleteIcon'><i
+							class="mdi mdi-delete text-red" data-toggle="modal"
 							data-target="#deleteModal"></i></a></td>
 
 				</tr>
@@ -105,11 +103,10 @@
 
 </div>
 <form id="actionForm" action="/board/list" method="get">
-	<input type="hidden" name="bno" value="${cri.bno}">
-	<input type="hidden" name="page" value="${cri.page}"> 
-	<input type="hidden" name="amount" value="${cri.amount}"> 
-	<input type="hidden" name="type" value="${cri.type}"> 
-	<input type="hidden" name="keyword" value="${cri.keyword}">
+	<input type="hidden" name="page" value="${cri.page}"> <input
+		type="hidden" name="amount" value="${cri.amount}"> <input
+		type="hidden" name="type" value="${cri.type}"> <input
+		type="hidden" name="keyword" value="${cri.keyword}">
 
 </form>
 
@@ -154,11 +151,6 @@
 			actionForm.attr("action","/board/list").submit();
 		});
 		
-		$(".listMdf").on("click",function(e){
-			actionForm
-			.attr("action","/board/modify")
-			.submit();
-		});
 		
 		$('.deleteIcon').on("click",function(e){
 			e.preventDefault();

@@ -5,14 +5,36 @@
 
 <mapper namespace="org.raoul.mapper.MemberMapper">
 
+	<sql id="searchCri">
+		<if test="map !=null">
+			<where>
+				<foreach collection="map" index="key" item="val">
+					<trim prefix="OR">
+						<if test="key == 'B'.toString()">
+							mno like concat('%', #{val} , '%')
+						</if>
+						<if test="key == 'U'.toString()">
+							uid like concat('%', #{val} , '%')
+						</if>
+						<if test="key == 'N'.toString()">
+							username like concat('%', #{val} , '%')
+						</if>
+					</trim>
+				</foreach>
+			</where>
+		</if>
+
+	</sql>
+
 	<resultMap type="MemberVO" id="memberMap">
 		<id property="mno" column="mno" />
 		<result column="uid" property="uid" />
 		<result column="pw" property="pw" />
 		<result column="username" property="username" />
 		<result column="mobile" property="mobile" />
-		<result column="regDate" property="regDate"/>
-		<result column="updateDate" property="updateDate"/>
+		<result column="ufid" property="ufid" />
+		<result column="regDate" property="regDate" />
+		<result column="updateDate" property="updateDate" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 
@@ -24,15 +46,33 @@
 	<select id="read" resultMap="memberMap">
 
 		select * from
-		echo_member 
+		echo_member
 		where mno = #{mno}
 
 	</select>
 
 	<update id="update">
-		update echo_member set uid = #{uid}, pw =#{pw}, username =#{username},
-		mobile =#{mobile}
+		update echo_member set uid = #{uid}, pw =#{pw},
+		username =#{username},
+		mobile =#{mobile},
+		ufid = #{ufid},
+		updatedate =
+		CURRENT_TIMESTAMP
 		where mno = #{mno}
 	</update>
+
+	<select id="selectPage" resultType="MemberVO">
+		select * from echo_member
+
+		<include refid="searchCri"></include>
+
+		order by mno desc limit #{skip}, #{amount}
+	</select>
+
+	<select id="selectPageCount" resultType="int">
+		select count(mno) from echo_member
+
+		<include refid="searchCri"></include>
+	</select>
 
 </mapper>
