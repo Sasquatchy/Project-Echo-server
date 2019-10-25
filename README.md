@@ -7,7 +7,7 @@ This server is mainly served for the admins, arranging the DB by CRUD photo boar
 
 * [The main API for the Echo, the IoT photo frame service with Spring Boot.](https://github.com/Sasquatchy/EchoAPI-server)
 
-* [The front-end of our Echo service with React-Native.](https://github.com/Sasquatchy/React-Native-project-Echo-mobile)
+* [The front-end of our Echo service with React-Native.](https://github.com/bpond37/React-Native-project-Echo-mobile)
 
 ## How it works?
 https://youtu.be/fvkCFcfVq28
