@@ -15,6 +15,11 @@ https://youtu.be/fvkCFcfVq28
 
 ## Team Raoul
 * Team member : 5
+  + [Jeehoon AHN](https://github.com/Sasquatchy)
+  + [Jihyun KIM](https://github.com/bpond37)
+  + [Junyung HEO](https://github.com/hjunyoung92)
+  + Gimin Gwon
+  + Junho Yun
 * Project duration : 2019.08.01 – 2019.09.15
 * Stack :
   + Front End : JavaScript, React Native, Axios, NodeJS, Hooks API, Redux API
